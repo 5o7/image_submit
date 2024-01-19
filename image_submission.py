@@ -12,7 +12,6 @@ reddit = praw.Reddit(client_id=creds["client_id"],
                      user_agent=creds["user_agent"],
                      username=creds["username"])
 
-
 url = "https://www.themoviedb.org/t/p/original/6FfCtAuVAW8XJjZ7eWeLibRLWTw.jpg"
 response = requests.get(url)
 with open("image.jpg", "wb") as f:
@@ -21,9 +20,3 @@ with open("image.jpg", "wb") as f:
 title = 'My favorite picture'
 image = 'image.jpg'
 reddit.subreddit('5o7bot').submit_image(title, image)
-submissions = []
-for submission in reddit.subreddit('5o7bot').__getattribute__("new")(limit=1):
-    submissions.append(submission)
-
-for submission in submissions:
-    submission.reply_image('image.jpg')
